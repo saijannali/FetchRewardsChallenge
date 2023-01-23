@@ -10,8 +10,8 @@ import SwiftUI
 struct DessertDetailsView: View{
     @ObservedObject var vm: DessertsViewModel
     let mealID: String
-    
     @State var image: UIImage?
+    
     
     var body: some View{
         VStack(spacing: 10) {
@@ -67,13 +67,13 @@ struct DessertDetailsView: View{
     
     func loadDetails(){
         image = ImageModelCacheManager.instance.get(key: mealID)
-        MealDeatilsModelDataService.instance.downloadDessertData(mealID: mealID)
+        vm.getDessertData(mealID: mealID)
         dump(vm.currDessertDetails)
     }
 }
 
 struct DessertDetailsView_Previews: PreviewProvider {
     static var previews: some View {
-        DessertDetailsView(vm: DessertsViewModel(), mealID: "1", image: UIImage())
+        DessertDetailsView(vm: DessertsViewModel(dataService: MealDeatilsModelDataService()), mealID: "1", image: UIImage())
     }
 }

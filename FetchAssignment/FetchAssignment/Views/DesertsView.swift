@@ -26,7 +26,7 @@ import SwiftUI
 import Combine
 
 struct DessertsView: View {
-    @StateObject var vm = DessertsViewModel()
+    @StateObject var vm = DessertsViewModel(dataService: MealDeatilsModelDataService())
     //@StateObject var vm = DownloadWithCombineViewModel()
     
     var body: some View {
