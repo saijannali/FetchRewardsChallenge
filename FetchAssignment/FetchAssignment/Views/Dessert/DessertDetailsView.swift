@@ -15,27 +15,25 @@ struct DessertDetailsView: View{
     
     var body: some View{
         VStack(spacing: 10) {
-            if let mealDetails = vm.currDessertDetails.meals.first {
-                if let image = image{
-                    Image(uiImage: image)
-                        .resizable()
-                        .aspectRatio(contentMode: .fill)
-                        .frame(maxWidth: .infinity)
-                        .frame(height: UIScreen.main.bounds.height/3)
-                        .cornerRadius(20)
-                        .overlay(alignment: .bottom) {
-                            Text(mealDetails.strMeal ?? "")
-                                .font(.title3)
-                                .fontWeight(.bold)
-                                .padding()
-                                .foregroundColor(.yellow)
-                                .frame(height: 44)
-                                .padding(.horizontal)
-                                .background(Color.black.opacity(0.3))
-                            
-                        }
-                        .padding(.horizontal)
-                }
+            if let mealDetails = vm.currDessertDetails.meals.first, let image = image {
+                Image(uiImage: image)
+                    .resizable()
+                    .aspectRatio(contentMode: .fill)
+                    .frame(maxWidth: .infinity)
+                    .frame(height: UIScreen.main.bounds.height/3)
+                    .cornerRadius(20)
+                    .overlay(alignment: .bottom) {
+                        Text(mealDetails.strMeal ?? "")
+                            .font(.title3)
+                            .fontWeight(.bold)
+                            .padding()
+                            .foregroundColor(.yellow)
+                            .frame(height: 44)
+                            .padding(.horizontal)
+                            .background(Color.black.opacity(0.3))
+                        
+                    }
+                    .padding(.horizontal)
                 
                 List{
                     Section(header: Text("Ingredients")){
@@ -62,18 +60,19 @@ struct DessertDetailsView: View{
         .onAppear{
             loadDetails()
         }
-        
     }
-    
+}
+//MARK: Private functions
+private extension DessertDetailsView{
     func loadDetails(){
-        image = ImageModelCacheManager.instance.get(key: mealID)
+        image = ImageCacheManager.instance.get(key: mealID)
         vm.getDessertData(mealID: mealID)
-        dump(vm.currDessertDetails)
     }
 }
 
+
 struct DessertDetailsView_Previews: PreviewProvider {
     static var previews: some View {
-        DessertDetailsView(vm: DessertsViewModel(dataService: MealDeatilsModelDataService()), mealID: "1", image: UIImage())
+        DessertDetailsView(vm: DessertsViewModel(dataService: MealDataService()), mealID: "1", image: UIImage())
     }
 }

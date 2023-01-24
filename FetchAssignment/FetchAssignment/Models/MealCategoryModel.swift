@@ -18,3 +18,4 @@ struct CategoryDetails: Identifiable, Codable{
     let idMeal: String
 }
 
+

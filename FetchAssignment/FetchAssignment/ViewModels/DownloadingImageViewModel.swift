@@ -15,7 +15,7 @@ class DownloadingImageViewModel: ObservableObject{
     @Published var isLoading: Bool = false
     
     var cancellables = Set<AnyCancellable>()
-    let cacheManager = ImageModelCacheManager.instance
+    let cacheManager = ImageCacheManager.instance
     
     let urlString: String
     let imageKey: String

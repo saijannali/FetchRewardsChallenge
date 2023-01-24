@@ -5,29 +5,12 @@
 //  Created by Sai Jannali on 1/18/23.
 //
 
-
-/*
- Utils
- - MealCategoryDetailsModelService
- 
- Model
-  - MealCategory, MealCategoryDetails,
-  - DessertDetails?
- 
- ViewModels
- -DessertsViewModel
- -
- 
- View
- 
- */
 import Foundation
 import SwiftUI
 import Combine
 
 struct DessertsView: View {
-    @StateObject var vm = DessertsViewModel(dataService: MealDeatilsModelDataService())
-    //@StateObject var vm = DownloadWithCombineViewModel()
+    @StateObject var vm = DessertsViewModel(dataService: MealDataService())
     
     var body: some View {
         NavigationView{

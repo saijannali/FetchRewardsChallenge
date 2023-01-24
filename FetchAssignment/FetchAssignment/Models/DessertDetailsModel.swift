@@ -115,7 +115,7 @@ struct DessertDetails: Codable{
         measures.append(strMeasure19)
         measures.append(strMeasure20)
         
-        return measures.compactMap( { $0 })
+        return measures.compactMap( { $0 } )
     }
     
     

@@ -1,14 +1,13 @@
 //
-//  FetchAssignmentTests.swift
-//  FetchAssignmentTests
+//  FetchAssignment_Tests.swift
+//  FetchAssignment_Tests
 //
-//  Created by Sai Jannali on 1/18/23.
+//  Created by Sai Jannali on 1/23/23.
 //
 
 import XCTest
-@testable import FetchAssignment
 
-final class FetchAssignmentTests: XCTestCase {
+final class FetchAssignment_Tests: XCTestCase {
 
     override func setUpWithError() throws {
         // Put setup code here. This method is called before the invocation of each test method in the class.
@@ -19,7 +18,6 @@ final class FetchAssignmentTests: XCTestCase {
     }
 
     func testExample() throws {
-        
         // This is an example of a functional test case.
         // Use XCTAssert and related functions to verify your tests produce the correct results.
         // Any test you write for XCTest can be annotated as throws and async.
@@ -29,7 +27,7 @@ final class FetchAssignmentTests: XCTestCase {
 
     func testPerformanceExample() throws {
         // This is an example of a performance test case.
-        self.measure {
+        measure {
             // Put the code you want to measure the time of here.
         }
     }

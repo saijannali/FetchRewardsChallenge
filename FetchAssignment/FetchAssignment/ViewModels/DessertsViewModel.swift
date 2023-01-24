@@ -20,13 +20,10 @@ class DessertsViewModel: ObservableObject{
     var cancellables = Set<AnyCancellable>()
     
     let dataService: DataServiceProtocol
-    //let dataService2: DataServiceProtocol
-    
     
     init(dataService: DataServiceProtocol){
         self.dataService = dataService
         getDessertsList()
-        
     }
     
     func getDessertsList() {
@@ -35,29 +32,12 @@ class DessertsViewModel: ObservableObject{
             return
         }
         dataService.downloadData(url : url)
-            .sink { error in
-                print("error sinking: \(error)")
+            .sink { status in
+                print("status sinking: \(status)")
             } receiveValue: { [weak self] returnedMeals in
                 self?.mealsDetailsArray = returnedMeals.meals
             }
             .store(in: &cancellables)
-
-            
-       
-            /*
-            .sink { [weak self] (returnedMealDetails) in
-                self?.mealsDetailsArray = returnedMealDetails
-            }
-            .store(in: &cancellables)
-             */
-        
-        /*
-        dataService.$dessertDetails
-            .sink { [weak self] (returnedDessertDetails)in
-                self?.currDessertDetails = returnedDessertDetails
-            }
-            .store(in: &cancellables)
-         */
     }
     
     
@@ -68,13 +48,11 @@ class DessertsViewModel: ObservableObject{
         }
         
         dataService.downloadDessertData(url: url)
-            .sink { error in
-                print("error sinking: \(error)")
+            .sink { status in
+                print("status sinking: \(status)")
             } receiveValue: { [weak self] returnedDessertDetails in
                 self?.currDessertDetails = returnedDessertDetails
             }
             .store(in: &cancellables)
-
-        
     }
 }
