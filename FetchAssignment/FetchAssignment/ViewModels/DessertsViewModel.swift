@@ -8,11 +8,6 @@
 import Foundation
 import Combine
 
-protocol DataServiceProtocol{
-    func downloadData(url: URL) -> AnyPublisher<MealCategoryModel, Error>
-    func downloadDessertData(url: URL) -> AnyPublisher<DessertDetailsModel, Error>
-}
-
 class DessertsViewModel: ObservableObject{
     
     @Published var mealsDetailsArray: [CategoryDetails] = []
@@ -33,7 +28,7 @@ class DessertsViewModel: ObservableObject{
         }
         dataService.downloadData(url : url)
             .sink { status in
-                print("status sinking: \(status)")
+                print("status sinking getDessertsList: \(status)")
             } receiveValue: { [weak self] returnedMeals in
                 self?.mealsDetailsArray = returnedMeals.meals
             }
@@ -49,7 +44,7 @@ class DessertsViewModel: ObservableObject{
         
         dataService.downloadDessertData(url: url)
             .sink { status in
-                print("status sinking: \(status)")
+                print("status sinking getDessertData: \(status)")
             } receiveValue: { [weak self] returnedDessertDetails in
                 self?.currDessertDetails = returnedDessertDetails
             }

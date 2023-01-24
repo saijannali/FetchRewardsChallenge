@@ -28,7 +28,6 @@ class MockDataService: DataServiceProtocol{
     
 }
 
-
 final class DessertsViewModel_Tests: XCTestCase {
     var vm: DessertsViewModel?
     

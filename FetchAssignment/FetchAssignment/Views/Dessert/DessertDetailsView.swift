@@ -12,7 +12,6 @@ struct DessertDetailsView: View{
     let mealID: String
     @State var image: UIImage?
     
-    
     var body: some View{
         VStack(spacing: 10) {
             if let mealDetails = vm.currDessertDetails.meals.first, let image = image {
@@ -62,6 +61,7 @@ struct DessertDetailsView: View{
         }
     }
 }
+
 //MARK: Private functions
 private extension DessertDetailsView{
     func loadDetails(){

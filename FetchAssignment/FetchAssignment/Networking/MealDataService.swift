@@ -8,6 +8,10 @@
 import Foundation
 import Combine
 
+protocol DataServiceProtocol{
+    func downloadData(url: URL) -> AnyPublisher<MealCategoryModel, Error>
+    func downloadDessertData(url: URL) -> AnyPublisher<DessertDetailsModel, Error>
+}
 
 class MealDataService: DataServiceProtocol{
 

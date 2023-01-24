@@ -19,9 +19,6 @@ struct DessertsViewRow: View{
             VStack(alignment: .leading) {
                 Text(mealDetail.strMeal)
                     .font(.headline)
-                Text(mealDetail.idMeal)
-                    .foregroundColor(.gray)
-                    .italic()
             }
             .frame(maxWidth: .infinity, alignment: .leading)
         }

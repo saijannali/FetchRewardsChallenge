@@ -14,11 +14,9 @@ final class MealDataService_Tests: XCTestCase {
 
     override func setUpWithError() throws {
         cancellables = []
-        
     }
 
     override func tearDownWithError() throws {
-        
     }
     
     func test_MealDataService_downloadData_shouldReturnItems() {
