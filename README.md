@@ -7,10 +7,7 @@ This iOS application provided the user with a list of Desserts along with a reci
 
 The Desserts are obtained from the following endpoint: ```https://themealdb.com/api/json/v1/1/filter.php?c=Dessert ```
 
-The associated recipes are obtained from 
-```jhttps://themealdb.com/api/json/v1/1/lookup.php?i=MEAL_ID ```
-
-given a ```MEAL_ID```
+The associated recipes are obtained from ```jhttps://themealdb.com/api/json/v1/1/lookup.php?i=MEAL_ID ``` given a ```MEAL_ID```
 
 
 
